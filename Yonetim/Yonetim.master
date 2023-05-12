@@ -1,0 +1,164 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Yonetim.master.cs"    Inherits="Yonetim_Yonetim" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta name=viewport content="width=device-width, initial-scale=1">
+    
+
+<title>Hijyen ilk yardım panel</title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/menu.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/Costum.css">
+
+
+
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server"></asp:ToolkitScriptManager>
+
+        <!--------  Orta Alan üst nav  ------------------>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    
+    <div class="up_header_bg">
+    <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+    <div class="User_Profil">
+    <img src="images/avatar.jpg" width="75" height="75"></div>
+    <div class="User_Profil_Name2">HoşGeldiniz...</div>
+    <div class="User_Profil_Name">Sayın: <asp:Literal ID="ltrYonetici" runat="server"></asp:Literal></div>
+    <div class="User_Sing_Out">
+        <asp:Button ID="btnSingOut" runat="server" class="btn btn-primary Button-Right btn-sm" Text="Çıkış" OnClick="btnSingOut_Click" /> </div>
+    
+    </div>
+    </div>
+    </div>
+    
+      <div class="container-fluid">
+      
+        <div class="navbar-header">
+        
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="Default.aspx">Siteye Geri Dön</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">AnaSayfa Alanı
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="AnaSayfaResim.aspx">AnaSayfa Resim</a></li>
+          <li><a href="AnaSayfaicerik.aspx"> AnaSayfa içerik</a></li>
+          
+        </ul>
+                   </li>
+
+
+
+          <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Kategoriler
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="Kategori.aspx">Ana Kategori</a></li>
+          <li><a href="AltKategori.aspx">Alt Kategori</a></li>
+         
+        </ul>
+              </li>
+
+               <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Video
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="VideoKategori.aspx">Video Kategori</a></li>
+          <li><a href="VideoAltKategori.aspx"> Video Alt Kategori</a></li>
+          
+        </ul>
+                   </li>
+
+                   <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Testler
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="Test.aspx">Test Kategori</a></li>
+          <li><a href="Soru.aspx">Sorular</a></li>
+          
+        </ul>
+</li>
+
+            <li><a href="Banner.aspx">Banner</a></li>
+            <li><a href="Galeri.aspx">Galeri</a></li>
+            <li><a href="Yonetim.aspx">Yönetim işlemleri</a></li>
+             <li><a href="Kullanici.aspx">Kullanıcı Yönetimi</a></li>
+            <li><a href="iletisim.aspx">iletişim</a></li>
+             <li><a href="Duyuru.aspx">Duyurular</a></li>
+              <li><a href="Ayarlar.aspx">Ayarlar</a></li>
+                  
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+	
+    <!--------  Orta Alan üst nav bitti ------------------>
+
+<!--------  Orta Alan sol nav  ------------------>
+    
+    <div class="container-fluid">
+   
+      <div class="row">
+       
+        <div class="col-sm-3 col-sm-ofset-3 col-md-2 sidebar">
+         <div class="slidbar_top">
+          <ul class="nav nav-sidebar">
+         
+            
+            <li>
+                <asp:LinkButton ID="btnTumMesajlar" runat="server" OnClick="btnTumMesajlar_Click">Tüm Mesajlar<asp:Label ID="lblTumMesajlar" runat="server" Text=""></asp:Label></asp:LinkButton></li>
+              <li>
+                <asp:LinkButton ID="btnOkunmamis" runat="server" OnClick="btnOkunmamis_Click">Okunmamış Mesajlar<asp:Label ID="lblOkunmamisMesajlar" runat="server" Text=""></asp:Label></asp:LinkButton></li>
+         
+               <li>
+                <asp:LinkButton ID="btnOkunmus" runat="server" OnClick="btnOkunmus_Click">Okunmus Mesajlar<asp:Label ID="lblOkunmusMesajlar" runat="server" Text=""></asp:Label></asp:LinkButton></li>
+         
+
+               </ul>
+          
+        </div>
+</div>
+</div>
+</div>
+<!--------  Orta Alan sol nav bitti ------------------>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+
+    
+<script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
+<script src="js/bootstrap.js" type="text/javascript"></script>
+
+<script src="js/script.js" type="text/javascript"></script>
+
+</body>
+</html>

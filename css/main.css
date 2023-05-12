@@ -1,0 +1,11 @@
+.menu-nav{ position:relative; float:left; width:920px; height:auto; }
+.menu-nav li{ float:left; display:inline; margin-right:8px;}
+.menu-nav li, .menu-nav li a, .menu-nav li span{ font-size:12px; color:#808080; line-height:18px;}
+.menu-nav li a:hover{ text-decoration:underline !important;}
+.menu-nav li span{ color:#2a2a2a;}
+
+.merkez-map{ position:relative; float:left; width:100%; height:400px;}
+.merkez-adres{ position:relative; float:left; width:100%; padding-top:40px; border-top:1px solid #e1e1e1; margin-bottom:30px;display:none}
+.merkez-adres h2{ float:left; width:100%; font-family:'Open Sans', sans-serif; font-weight:700; font-size:22px; color:#c20110; padding:0; margin-bottom:15px; }
+.merkez-adres p{ font-family:'Open Sans', sans-serif; font-weight:400; font-size:11px; color:#525252; padding:0;}
+.merkez-adres p span{ font-weight:700;}

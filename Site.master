@@ -1,0 +1,442 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true"   CodeFile="Site.master.cs" Inherits="Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="TR"/>	
+    <meta name="author" content="Lokman Ağın" />
+
+
+
+    <title></title>
+   
+
+    	<!-- Start VisualLightBox.com HEAD section -->
+		<link rel="stylesheet" href="index_files/vlb_files1/vlightbox1.css" type="text/css" />
+		<link rel="stylesheet" href="index_files/vlb_files1/visuallightbox.css" type="text/css" media="screen" />
+
+		<!-- End VisualLightBox.com HEAD section -->
+
+
+    <!-- Bootstrap -->
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/custom.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+<link href="css/social-share-kit.css" rel="stylesheet">
+
+	
+    <link rel="stylesheet" type="text/css" href="Youtube/YouTubePopUp.css">
+	
+	
+
+<script type="text/javascript" src="js/social-share-kit.js"></script>
+<script type="text/javascript">
+    SocialShareKit.init();
+</script>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="js/jquery-1.12.2.min.js"></script>
+
+     
+    <script>
+        $(document).ready(function () {
+            $("#myLogin").click(function () {
+                $("#myModal").modal();
+            });
+        });
+</script>
+    
+  <script>
+        $(document).ready(function () {
+            $("#myMail").click(function () {
+                $("#myModalMail").modal();
+            });
+        });
+</script>
+    
+   
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3210649942471644",
+        enable_page_level_ads: true
+    });
+</script>
+
+
+
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div id="fb-root"></div>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.6";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnableScriptGlobalization="True"></asp:ToolkitScriptManager>
+    <div class="ssk-sticky ssk-left ssk-center ssk-lg">
+        <asp:Repeater ID="Link" runat="server">
+            <ItemTemplate>
+                <a target="_blank" href="<%#Eval("Facebook") %> " class="ssk ssk-facebook"><img src="images/ico-face.png" width="28" height="28" title="Facebook"></a>
+         <a target="_blank" href="<%#Eval("Youtube") %>" class="ssk ssk-youtube"><img src="images/ico-ytube.png" width="28" height="28" title="YouTube"></a> 
+         <a target="_blank" href="<%#Eval("instegram") %>" class="ssk ssk-instagram"><img src="images/ico-ins.png" width="28" height="28" title="İnstagram"></a>
+    <a target="_blank" href="<%#Eval("GooglePlus") %>" class="ssk ssk-google-plus"><img src="images/ico-gopls.png" width="28" height="28" title="Google+"></a>  
+            </ItemTemplate>
+        </asp:Repeater>  
+</div>
+<!-- Ust-Logo-vs -->
+<div class="container-fluid bg-ust cerceve-alt cerceve-renk">
+  <div class="row">
+    <div class="container baslik3">
+      <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 hidden-xs"> <a href="Default.aspx">
+          <asp:Image ID="ImageLogo" runat="server" CssClass="img-responsive" /></a> </div>
+      <div class="col-lg-5 col-md-5 col-sm-12 visible-xs"> <a href="Default.aspx"><asp:Image ID="ImageLogo2" runat="server" CssClass="img-responsive"  /></a> </div>
+      
+          
+                <!--------Login - Sifremi Unuttum--------->
+        <div class="col-lg-4 col-md-4 col-sm-4  pull-right"> <!------ hidden-xs------->
+
+            <asp:Panel ID="pnlKullanici" Visible="false" runat="server">
+                <div class="row">
+    <div class="col-md-12">
+    <div class="User_Profil">
+        <asp:Image ID="ImageProfil" runat="server" Width="75" Height="75" /> </div>
+    <div class="User_Profil_Name2">HoşGeldiniz...</div>
+    <div class="User_Profil_Name">Sayın: <asp:Literal ID="ltrKullanici" runat="server"></asp:Literal></div>
+    <div class="User_Sing_Out">
+        <asp:Button ID="btnSingOut" runat="server" class="btn btn-primary Button-Right btn-sm" Text="Çıkış" OnClick="btnSingOut_Click" />
+    </div>
+         <div class="User_Sing_Out">
+             <asp:HyperLink ID="hypProfil"  class="btn btn-primary Button-Right btn-sm" runat="server" NavigateUrl="~/Profil.aspx">Profilim</asp:HyperLink>
+
+         </div>
+         </div>
+    
+    </div>
+            </asp:Panel>
+   
+            
+            <!--------Login --------->
+            <!-- Trigger the modal with a button -->
+
+
+            <!-- Modal -->
+            <div class="modal fade " id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    
+      <div class="modal-content">
+          <div class="modal-header modal-header-Login" style="padding: 35px 50px;">
+
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4><span class="glyphicon glyphicon-lock"></span>Giriş Yap</h4>
+          </div>
+
+          <div class="modal-body" style="padding: 40px 50px;">
+
+
+              <div class="form-group">
+                  <label for="usrname"><span class="glyphicon glyphicon-user"></span>e-Mail</label>
+                  <asp:TextBox ID="txtMail" class="form-control" TextMode="Email" placeholder="Enter email" runat="server"></asp:TextBox>
+              </div>
+              <div class="form-group">
+                  <label for="psw"><span class="glyphicon glyphicon-eye-open"></span>Şifre</label>
+                  <asp:TextBox ID="txtSifre" class="form-control" TextMode="Password" placeholder="Enter Şifre" runat="server"></asp:TextBox>
+              </div>
+              <div class="checkbox">
+                  <asp:CheckBox ID="chHatirla" Text="Beni Hatırla" runat="server" />
+              </div>
+              <asp:Button ID="BtnGiris" CssClass="btn btn-success btn-block glyphicon glyphicon-off" runat="server" Text="GirişYap" OnClick="BtnGiris_Click" />
+
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>İptal</button>
+              <p><a href="KayitOl.aspx">Üye Ol</a></p>
+              <p><a id="myMail" href="#">Şifremi Unuttum?</a></p>
+          </div>
+
+      </div>
+
+                </div>
+            </div>
+            <!--------Login Bitiş --------->
+
+            <!-------- Sifremi Unuttum--------->
+            <div class="modal fade" id="myModalMail" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    
+      <div class="modal-content">
+          <div class="modal-header modal-header-Login" style="padding: 35px 50px;">
+
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4><span class="glyphicon glyphicon-lock"></span>Şifremi Unuttum</h4>
+          </div>
+
+          <div class="modal-body" style="padding: 40px 50px;">
+
+              <div class="form-group">
+                  <label for="usrname"><span class="glyphicon glyphicon-user"></span>e-Mail</label>
+                  <asp:TextBox ID="txtMailSifre" class="form-control" TextMode="Email" placeholder="Enter email" runat="server"></asp:TextBox>
+              </div>
+              <asp:Button ID="btnUnuttum" CssClass="btn btn-success btn-block glyphicon glyphicon-off" runat="server" Text="Gönder" OnClick="btnUnuttum_Click" />
+
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>İptal</button>
+              <p><a href="KayitOl.aspx">Üye Ol</a></p>
+
+          </div>
+
+      </div>
+
+                </div>
+            </div>
+
+            <!--------Sifremi Unuttum Bitiş--------->
+
+            <!--------Login - Sifremi Unuttum Bitiş--------->
+
+            <!--------Login --------->
+          
+
+
+
+
+        </div>
+  </div>
+</div>
+
+</div>
+
+<!-- Ust-Logo-vs-Sonu --> 
+<!-- Menu-Slider-->
+<div class="container-fluid bg-menu-slider"> 
+  <!-- Menu -->
+
+
+    <div class="container-fluid ">
+        <nav class="navbar navbar-default  ">
+      <div class="container-fluid"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+  
+            <li><a href="Default.aspx"  class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" title="AnaSayfa">AnaSayfa</a></li>
+
+
+             <asp:Repeater ID="Repeater1" runat="server" OnItemDataBound="Repeater1_ItemDataBound">
+                 <ItemTemplate>
+                     <li class="dropdown"> <a href='<%#Eval("KatAdi") %>' title='<%#Eval("KatAdi") %>'   class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Multimedya"><%#Eval("KatAdi") %> <span class="caret"> </span></a>
+              <ul class="dropdown-menu">
+                  <asp:Repeater ID="Repeater2" runat="server"  >
+                      <ItemTemplate>
+            
+                         <li> <a href="<%#urun(Eval("AltKatId").ToString(),Eval("AltKatAdi").ToString()) %>"><%#Eval("AltKatAdi").ToString() %></a></li>
+             
+                      </ItemTemplate>
+                  </asp:Repeater>
+                          </ul>    
+                        </li>
+                 </ItemTemplate>
+             </asp:Repeater>
+
+              <li class="dropdown"> <a href="#" title="Test"   class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Test">Test Çöz <span class="caret"> </span></a>
+
+                  <ul class="dropdown-menu">
+                  <asp:Repeater ID="rptTest" runat="server"  >
+                      <ItemTemplate>
+            
+                         <li> <a href="<%#Test(Eval("TestId").ToString(),Eval("TestAdi").ToString()) %>"><%#Eval("TestAdi").ToString() %></a></li>
+             
+                      </ItemTemplate>
+                  </asp:Repeater>
+                          </ul>    
+
+              </li>
+
+
+               <li class="dropdown"> <a href="#" title="Test"   class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" title="Test">Videolar <span class="caret"> </span></a>
+
+                  <ul class="dropdown-menu">
+                  <asp:Repeater ID="RptVideoKat" runat="server"  >
+                      <ItemTemplate>
+            
+                         <li> <a href="<%#Video(Eval("VideoKatId").ToString(),Eval("VideoKatAdi").ToString()) %>"><%#Eval("VideoKatAdi").ToString() %></a></li>
+             
+                      </ItemTemplate>
+                  </asp:Repeater>
+                          </ul>    
+
+              </li>
+
+
+
+              <li><a href="Galeri.aspx"  class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" title="Galeri">Galeri</a></li>
+              <li><a href="Form.aspx"  class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" title="Form">Form</a></li>
+              <li><a href="Duyuru.aspx"  class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" title="Duyurular">Duyurular</a></li>
+              <li><a href="iletisim.aspx"  class="dropdown-toggle"  role="button" aria-haspopup="true" aria-expanded="false" title="iletişim">iletişim</a></li>
+               
+              <li><a id="myLogin" title="Üye Girişi"><span class="glyphicon glyphicon-log-in btn btn-success hidden-xs "></span> </a></li>
+             <li><a href="KayitOl.aspx"  title="Yeni Kayıt"><span class="glyphicon glyphicon-user btn btn-primary hidden-xs"></span></a></li>
+     
+                <li><a href="KulGiris.aspx" title="Üye Girişi"><span class="glyphicon glyphicon-log-in btn btn-success visible-xs"></span> </a></li>
+             <li><a href="KayitOl.aspx"  title="Yeni Kayıt"><span class="glyphicon glyphicon-user btn btn-primary visible-xs"></span></a></li>
+
+          </ul>
+        </div>
+        <!-- /.navbar-collapse --> 
+      </div>
+      <!-- /.container-fluid --> 
+    </nav>
+    </div>
+  <!-- Menu-Sonu -->
+
+    
+        <asp:ContentPlaceHolder ID="Slayt" runat="server">
+
+
+        </asp:ContentPlaceHolder>
+ 
+</div>
+<!-- Menu-Slider-Sonu -->
+
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+
+        </asp:ContentPlaceHolder>
+
+
+
+<!-- Alt-Ikon-Link -->
+<div class="container-fluid bg-kirmizi padding-top-16"> 
+  <!-- Alt-Kzly-Ikon -->
+  <div class="container  bg-kirmizi ">
+    <div class="col-md-9 h100 padding-Sifir">
+      <%--<div class="col-md-12 h100 padding-bottom-16">
+        <div class="col-md-4 col-sm-4 padding-bottom-16"><img src="images/ico-2868.png" width="160" height="72" class="img-responsive center-block"></div>
+        <div class="col-md-4 col-sm-4 padding-bottom-16"><img src="images/ico-168.png" width="160" height="72" class="img-responsive center-block"></div>
+        <div class="col-md-4 col-sm-4 padding-bottom-16"><img src="images/ico-kan.png" width="160" height="72" class="img-responsive center-block"></div>
+      </div>--%>
+      <div class="col-md-12 yazi-beyaz">
+        <div class="col-md-4 col-sm-4 padding-sol-32"><br>
+        <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+&nbsp;&nbsp;&nbsp;MENU<br>
+&nbsp;&bull;&nbsp;<a href="Default.aspx" class="enalt-yazi">Ana Sayfa</a><br>
+&nbsp;&bull;&nbsp;<a href="Test.aspx" class="enalt-yazi">Soru Çöz</a> <br>
+&nbsp;&bull;&nbsp;<a href="Galeri.aspx" class="enalt-yazi">Resim Galerisi</a><br>
+&nbsp;&bull;&nbsp;<a href="Form.aspx" class="enalt-yazi">Soru Sor</a><br>
+&nbsp;&bull;&nbsp;<a href="Duyuru.aspx" class="enalt-yazi">Duyurular</a><br>
+&nbsp;&bull;&nbsp;<a href="iletisim.aspx" class="enalt-yazi">iletişim</a><br>
+</div>
+        <div class="col-md-4 col-sm-4 padding-sol-32"><br>
+<span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span>&nbsp;&nbsp;&nbsp;VİDEOLAR<br>
+            <asp:Repeater ID="rptVideo" runat="server">
+                <ItemTemplate>
+
+                    <li><a class="enalt-yazi" href="<%#Video(Eval("VideoKatId").ToString(),Eval("VideoKatAdi").ToString()) %>"><%#Eval("VideoKatAdi").ToString() %></a></li>
+
+                </ItemTemplate>
+            </asp:Repeater>
+            </div>
+
+        <div class="col-md-4 col-sm-4 padding-sol-32"><br>
+        <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+&nbsp;<asp:Label ID="lblAltHak" runat="server" Text=""></asp:Label><br>&nbsp;</div>
+
+      </div>
+    </div>
+    <div class="col-md-3 h200">
+        <asp:Repeater ID="rptFace" runat="server">
+            <ItemTemplate>
+<div class="fb-page" data-href="<%#Eval("Facebook") %>" data-tabs="timeline"  data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="<%#Eval("Facebook") %>" class="fb-xfbml-parse-ignore"><a href="<%#Eval("Facebook") %>">Istanbul ilk Yardim Hijyen</a></blockquote></div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+    </div>
+  </div>
+  <!-- Alt-Kzly-Ikon-Sonu --> 
+  <!-- Alt-Kzly-Link-vs -->
+  <div class="container bg-kirmizi yazi-beyaz padding-top-16 visible-xs">
+    <div class="ssk-group text-center">
+    
+           <asp:Repeater ID="SosyalLink" runat="server">
+            <ItemTemplate>
+                <a target="_blank" href="<%#Eval("Facebook") %> " class="ssk ssk-facebook"><img src="images/ico-face.png" width="28" height="28" title="Facebook"></a>
+         <a target="_blank" href="<%#Eval("Youtube") %>" class="ssk ssk-youtube"><img src="images/ico-ytube.png" width="28" height="28" title="YouTube"></a> 
+         <a target="_blank" href="<%#Eval("instegram") %>" class="ssk ssk-instagram"><img src="images/ico-ins.png" width="28" height="28" title="İnstagram"></a>
+    <a target="_blank" href="<%#Eval("GooglePlus") %>" class="ssk ssk-google-plus"><img src="images/ico-gopls.png" width="28" height="28" title="Google+"></a>  
+            </ItemTemplate>
+        </asp:Repeater> 
+
+
+
+</div>
+  </div>
+  <!-- Alt-Kzly-Link-vs-Sonu --> 
+</div>
+<!-- Alt-Ikon-Link-Sonu --> 
+
+   
+
+		 <script src="index_files/vlb_engine/jquery.min.js" type="text/javascript"></script>
+	
+     <script src="sliderengine/jquery.js"></script>
+<script src="sliderengine/initslider-1.js"></script>
+
+
+      
+
+    
+    
+
+         
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
+<script src="js/jquery-2.1.4.js"></script> 
+<!-- Include all compiled plugins (below), or include individual files as needed --> 
+<script src="js/bootstrap.min.js"></script>
+
+         <script src="sliderengine/amazingslider.js"></script>
+
+         <script src="index_files/vlb_engine/thumbscript1.js" type="text/javascript"></script>
+
+        <script src="index_files/vlb_engine/vlbdata1.js" type="text/javascript"></script>
+        
+         <script src="index_files/vlb_engine/visuallightbox.js" type="text/javascript"></script>
+        
+        <script type="text/javascript" src="Youtube/YouTubePopUp.jquery.js"></script>
+
+
+    </form>
+</body>
+</html>
