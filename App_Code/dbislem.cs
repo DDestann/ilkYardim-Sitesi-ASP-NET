@@ -20,7 +20,7 @@ public class dbislem
 
   //SqlConnection con = new SqlConnection(@"Data Source=DESTAN\SQLEXPRESS;Initial Catalog=istanbulilkyardim.com;Integrated Security=True");
 
-    MySqlConnection con = new MySqlConnection("Server=94.73.170.250;Database=ilkyardim;Uid=ilkyardim;Pwd=L+l+L+l6248810;Integrated Security=False;");
+    MySqlConnection con = new MySqlConnection("Server=name;Database=ilkyardim;Uid=ilkyardim;Pwd=123;Integrated Security=False;");
     public int execute(string sqlcumle)
     {
         MySqlCommand cmd = new MySqlCommand(sqlcumle, con);
